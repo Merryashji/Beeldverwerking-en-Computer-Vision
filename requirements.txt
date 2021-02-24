@@ -5,4 +5,4 @@ random           (pip install random)
 matplotlib       (pip install matplotlib)
 numpy            (pip install numpy)
 jupyter
-
+.

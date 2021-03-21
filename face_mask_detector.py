@@ -36,3 +36,13 @@ labels=lb.fit_transform(labels)
 labels=to_categorical(labels)
 
 train_X,test_X,train_Y,test_Y=train_test_split(training_data,labels,test_size=0.30,stratify=labels,random_state=10)
+
+baseModel=MobileNetV2(weights='imagenet',include_top=False,input_tensor=Input(shape=(224,224,3)))
+
+headModel=baseModel.output
+headModel=AveragePooling2D(pool_size=(7,7))(headModel)
+headModel=Flatten(name='Flatten')(headModel)
+headModel=Dense(128,activation='relu')(headModel)
+headModel=Dense(2,activation='softmax')(headModel)
+
+model=Model(inputs=baseModel.input,outputs=headModel)

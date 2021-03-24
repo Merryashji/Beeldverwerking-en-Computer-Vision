@@ -34,6 +34,7 @@ def create_training_data():
         img_size = 224
         img =cv2.resize(img  , (img_size, img_size))
         img = img_to_array(img )
+        img=preprocess_input(img)
         training_data.append(img )
 
 create_training_data()
@@ -47,12 +48,25 @@ labels=to_categorical(labels)
 
 train_X,test_X,train_Y,test_Y=train_test_split(training_data,labels,test_size=0.30,stratify=labels,random_state=10)
 
+
 baseModel=MobileNetV2(weights='imagenet',include_top=False,input_tensor=Input(shape=(224,224,3)))
 
 headModel=baseModel.output
 headModel=AveragePooling2D(pool_size=(7,7))(headModel)
 headModel=Flatten(name='Flatten')(headModel)
 headModel=Dense(128,activation='relu')(headModel)
+headModel=Dropout(0.5)(headModel)
 headModel=Dense(2,activation='softmax')(headModel)
 
 model=Model(inputs=baseModel.input,outputs=headModel)
+
+for layer in baseModel.layers:
+    layer.trainable=False
+    
+model.compile(loss = "binary_crossentropy" , optimizer = "adam" , metrics = ["accuracy"] )
+model.fit(train_X,train_Y, epochs = 10 , validation_split = 0.1)
+
+
+model.save("my_model2" , save_format = "h5")
+
+

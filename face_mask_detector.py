@@ -63,10 +63,16 @@ model=Model(inputs=baseModel.input,outputs=headModel)
 for layer in baseModel.layers:
     layer.trainable=False
     
-model.compile(loss = "binary_crossentropy" , optimizer = "adam" , metrics = ["accuracy"] )
-model.fit(train_X,train_Y, epochs = 10 , validation_split = 0.1)
+learning_rate=0.001
+Epochs=20
+BS=12
+
+optimizer=Adam(lr=learning_rate,decay=learning_rate/Epochs)
+model.compile(loss='binary_crossentropy',optimizer=optimizer,metrics=['accuracy'])
+
+model.fit(data.flow(train_X,train_Y,batch_size=BS), steps_per_epoch=len(train_X)//BS, validation_data=(test_X,test_Y), validation_steps=len(test_X)//BS, epochs=Epochs)
 
 
-model.save("my_model2" , save_format = "h5")
+model.save("my_model3" , save_format = "h5")
 
 

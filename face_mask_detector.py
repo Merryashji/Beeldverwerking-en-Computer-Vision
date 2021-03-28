@@ -48,7 +48,7 @@ labels=lb.fit_transform(labels)
 labels=to_categorical(labels)
 
 train_X,test_X,train_Y,test_Y=train_test_split(training_data,labels,test_size=0.10,stratify=labels,random_state=10)
-
+data=ImageDataGenerator(rotation_range=20,zoom_range=0.15,width_shift_range=0.2,height_shift_range=0.2,shear_range=0.15,horizontal_flip=True,vertical_flip=True,fill_mode='nearest')
 
 baseModel=MobileNetV2(weights='imagenet',include_top=False,input_tensor=Input(shape=(224,224,3)))
 

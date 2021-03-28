@@ -7,7 +7,7 @@ import cv2
 prototxtPath = r'C:\Users\Gebruiker\Downloads\caffe_model_for_dace_detection-master\deploy.prototxt'
 weightsPath = r'C:\Users\Gebruiker\Downloads\caffe_model_for_dace_detection-master\res10_300x300_ssd_iter_140000.caffemodel'
 model = load_model(r'C:\Users\Gebruiker\Downloads\my_model3')
-image = cv2.imread(r'C:\Users\Gebruiker\Downloads\test_dataset\mask_17.png')
+image = cv2.imread(r'C:\Users\Gebruiker\Downloads\test_data\mask_17.png')
 face_net = cv2.dnn.readNet(prototxtPath, weightsPath)
 
 

@@ -46,7 +46,7 @@ lb=LabelBinarizer()
 labels=lb.fit_transform(labels)
 labels=to_categorical(labels)
 
-train_X,test_X,train_Y,test_Y=train_test_split(training_data,labels,test_size=0.30,stratify=labels,random_state=10)
+train_X,test_X,train_Y,test_Y=train_test_split(training_data,labels,test_size=0.10,stratify=labels,random_state=10)
 
 
 baseModel=MobileNetV2(weights='imagenet',include_top=False,input_tensor=Input(shape=(224,224,3)))

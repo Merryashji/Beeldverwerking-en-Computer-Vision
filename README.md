@@ -1,5 +1,5 @@
 # Beeldverwerking-en-Computer-Vision
-Deze repository is voor het vak computer vision en beeldverwerking. 
+Deze repository is voor het vak computer vision en beeldverwerking.
 Deze repository bevat:
 *	Planning 
 *	Requirements die je nodig heb om de eindopdracht te testen.

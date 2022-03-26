@@ -5,7 +5,7 @@ Deze repository bevat:
 *	Requirements die je nodig heb om de eindopdracht te kunnen testen.
 *	Dataset om face mask detector te kunnen trainen. 
 *	Face mask detector 
-*	caffe_model_for_dace_detection-master is nodig voor het testen van de getrained data. 
+*	caffe_model_for_dace_detection-master voor het detecteren van het gezicht . 
 *	test data wordt gebruikt om face mask detector te testen. 
-*	code om getrained data te testen. 
+*	test face mask detector. 
 *	Verslag 

@@ -10,7 +10,9 @@ weightsPath = r'C:\Users\mimii\Downloads\caffe_model_for_dace_detection-master\r
 
 face_net = cv2.dnn.readNet(prototxtPath, weightsPath)
 model = load_model(r'C:\Users\mimii\Downloads\face_mask_detector_model')
-image = cv2.imread(r'C:\Users\mimii\Downloads\test_data\mix_71.jpg')
+
+photo = input ("choose a photo:\n mask_1.png\n mask_2.png\n mask_3.png\n mask_4.png\n mask_5.png\n mask_6.png\n mask_7.png\n mask_8.png\n mask_9.png\n mask_10.png\n mask_11.png\n mask_12.png\n no_mask_1.png\n no_mask_2.png\n no_mask_3.png\n no_mask_4.png\n no_mask_5.png\n no_mask_6.png\n no_mask_7.png\n no_mask_8.png\n no_mask_9.png\n no_mask_10.png\n no_mask_11.png\n no_mask_12.png\n no_face1.png\n no_face.webp\n")
+image = cv2.imread(photo)
 
 #we need height and width
 (height, width) = image.shape[:2]
